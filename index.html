@@ -3,11 +3,22 @@
   <head>
     <script src="p5/p5.js"></script>
     <script src="p5/addons/p5.sound.js"></script>
+    <script type = "text/javascript" src = "sketch.js"> </script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
 
   </head>
   <body>
+
+    <h1 class="text-center">Sorting Algorithm Animation</h1>
+    
+    <div class="image-center" id="animation"></div>
+    <div class="image-center button-margin" id="buttons">
+      <button id="start" class="button-margin" type="button" onclick="startSorting()">Start</button>
+      <button id="pause" class="button-margin" type="button" onclick="pauseSorting()">Pause</button>
+      <button id="reset" class="button-margin" type="button" onclick="resetData()">Reset</button>
+    </div>
+    
     <script src="sketch.js"></script>
   </body>
 </html>

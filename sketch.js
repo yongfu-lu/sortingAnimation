@@ -1,12 +1,14 @@
-var width = window.innerWidth;
-var height = window.innerHeight;
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
 
 var values = []
-var i = 0;
+var i = 0;  //variable for sorting
 var j = 0;
+var isSorting = false;
 
 function setup() {
-    createCanvas(800,500);
+    var myCanvas = createCanvas(1000,500);
+    myCanvas.parent("animation")
     fillValue(values);
   }
   
@@ -18,7 +20,7 @@ function setup() {
   }
 
   function fillValue(values){
-      for (let i = 0; i < 60; i++){
+      for (let i = 0; i < width/10; i++){
           values[i] = floor(random(height));
       }
   }
@@ -30,13 +32,12 @@ function setup() {
         }
         else fill(255);
 
-        rect(i*10+100,height-values[i],10,values[i]);
-        //line(i, height, i, height-values[i]);
+        rect(i*10,height-values[i],10,values[i]);
     }
   }
 
   function bubbleSortByFrame(values){
-    if( i < values.length){
+    if( i < values.length && isSorting){
       if(values[j] > values[j+1]){
         swap(values,j,j+1);
       }
@@ -52,4 +53,19 @@ function setup() {
     let temp = arr[a];
     arr[a] = arr[b];
     arr[b] = temp;
+  }
+
+  function startSorting(){
+      isSorting = true;
+  }
+
+  function pauseSorting(){
+    isSorting = false;
+  }
+
+  function resetData(){
+    i=0;
+    j=0;
+    isSorting=false;
+    fillValue(values);
   }

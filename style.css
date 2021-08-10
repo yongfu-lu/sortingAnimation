@@ -5,4 +5,15 @@ html, body {
   canvas {
     display: block;
   }
-  
+
+  .text-center{
+    text-align: center;
+  }
+
+  .image-center{
+    text-align: -webkit-center;
+  }
+
+  .button-margin{
+    margin: 20px;
+  }
