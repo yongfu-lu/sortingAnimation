@@ -2,14 +2,15 @@ var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
 
 var values = []
-var i = 0;  //variable for sorting
-var j = 0;
+var i = 0;  //variable for bubble sort 
+var j = 0;  //variable for bubble sort
 var isSorting = false;
 
 function setup() {
     var myCanvas = createCanvas(1000,500);
     myCanvas.parent("animation")
     fillValue(values);
+    drawValue(values,j);
   }
   
   function draw() {
@@ -36,24 +37,24 @@ function setup() {
     }
   }
 
-  function bubbleSortByFrame(values){
-    if( i < values.length && isSorting){
-      if(values[j] > values[j+1]){
-        swap(values,j,j+1);
-      }
-      j++;
-      if ( j >= values.length-i-1){
-        j = 0;
-        i ++;
-      }
-    }
-  }
+  // function bubbleSortByFrame(values){
+  //   if( i < values.length && isSorting){
+  //     if(values[j] > values[j+1]){
+  //       swap(values,j,j+1);
+  //     }
+  //     j++;
+  //     if ( j >= values.length-i-1){
+  //       j = 0;
+  //       i ++;
+  //     }
+  //   }
+  // }
 
-  function swap(arr,a,b){
-    let temp = arr[a];
-    arr[a] = arr[b];
-    arr[b] = temp;
-  }
+  // function swap(arr,a,b){
+  //   let temp = arr[a];
+  //   arr[a] = arr[b];
+  //   arr[b] = temp;
+  // }
 
   function startSorting(){
       isSorting = true;
