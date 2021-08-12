@@ -1,6 +1,7 @@
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
 
+var currentAlgorithm = "bubblesort";
 var values = []
 var i = 0;  //variable for bubble sort 
 var j = 0;  //variable for bubble sort
@@ -11,20 +12,18 @@ var isSorting = false;
 function setup() {
     var myCanvas = createCanvas(1000,500);
     myCanvas.parent("animation")
-    fillValue(values);
+    updateAlgorithm();
     drawValue(values,j);
-    //frameRate(5);
+    //frameRate(30);
   }
   
-  function mousePressed(){
-    draw() {
-      background(255);
-      //bubbleSortByFrame(values);
-      selectionSort(values);
-      stroke(0);
-      drawValue(values,j);
-    }
+  function draw() {
+    background(255);
+    sorting();
+    stroke(0);
+    drawValue(values,j);
   }
+
 
   function fillValue(values){
       for (let i = 0; i < width/10; i++){
@@ -56,4 +55,34 @@ function setup() {
     j=0;
     isSorting=false;
     fillValue(values);
+  }
+
+  function updateAlgorithm(){
+    resetData();
+    currentAlgorithm = document.getElementById("algorithms").value;
+    var description = getDescription(currentAlgorithm);
+    document.getElementById("description").innerHTML = description;
+    
+  }
+
+  // call sorting function based on the current algorithm users choce.
+  function sorting(){
+      if(currentAlgorithm == "bubblesort"){
+        bubbleSortByFrame(values);
+      }
+      else{
+        selectionSort(values);
+      }
+  }
+
+  function getDescription(algorithm){
+      var description;
+      if(algorithm == "bubblesort"){
+        description = "Algorithm: Bubble Sort. Time Complexity O(n^2). Space Complexity O(1)."
+      }
+      else{
+        description = "Algorithm: Selection Sort. Time Complexity O(n^2). Space Complexity O(1)."
+      }
+
+      return description;
   }
