@@ -1,14 +1,11 @@
 var windowWidth = window.innerWidth;
 var windowHeight = window.innerHeight;
 
-var barWidth = 20;
+var barWidth = 10;
 var currentAlgorithm = "bubblesort";
 var sleepTime = 80;
 var values = [];
 var states = [];
-var i = 0; //variable for selectionSortByframe
-var j = 0; //variable for selectionSortByframe
-var min_idx = i;
 
 var isSorting = false;
 
@@ -17,7 +14,6 @@ function setup() {
   myCanvas.parent("animation");
   updateAlgorithm();
   drawValue(values);
-  frameRate(60);
 }
 
 function draw() {
@@ -44,17 +40,6 @@ function drawValue(values) {
   }
 }
 
-// function drawValue2(values, currentIndex) {
-//   for(let i = 0; i < values.length; i++){
-//       if (i == currentIndex){
-//         fill(200,0,200);
-//       }
-//       else fill(255);
-
-//       rect(i*10,height-values[i],10,values[i]);
-//   }
-// }
-
 function startSorting() {
   if (!isSorting) {
     isSorting = true;
@@ -72,13 +57,7 @@ function startSorting() {
   }
 }
 
-function pauseSorting() {
-  isSorting = false;
-}
-
 function resetData() {
-  i = 0;
-  j = 0;
   isSorting = false;
   fillValue(values);
 }
@@ -91,6 +70,7 @@ function updateAlgorithm() {
   document.getElementById("description").innerHTML = description;
 }
 
+//update speed
 function updateSpeed(){
     var currentSpeed = document.getElementById("speed").value;
     if(currentSpeed == "slow"){

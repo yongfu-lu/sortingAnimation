@@ -15,38 +15,6 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// //bubble sort by frame
-// function bubbleSortByFrame(values) {
-//   if (i < values.length && isSorting) {
-//     if (values[j] > values[j + 1]) {
-//       swap(values, j, j + 1);
-//     }
-//     j++;
-//     if (j >= values.length - i - 1) {
-//       j = 0;
-//       i++;
-//     }
-//   }
-// }
-
-// //selection sort by frame
-// function selectionSortByFrame(values) {
-//   if (isSorting && i < values.length) {
-//     if (j < values.length) {
-//       if (values[j] < values[min_idx]) {
-//         min_idx = j;
-//       }
-//       j++;
-//     }
-
-//     if (j >= values.length) {
-//       swap2(values, min_idx, i);
-//       i++;
-//       j = i + 1;
-//       min_idx = i;
-//     }
-//   }
-// }
 
 //quick sort
 async function quickSort(arr, start, end) {
