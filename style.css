@@ -17,3 +17,7 @@ html, body {
   .button-margin{
     margin: 20px;
   }
+
+  .button-padding{
+    padding: 20px;
+  }

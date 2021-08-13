@@ -16,14 +16,30 @@
     <div class="image-center" id="animation"></div>
     <div class="image-center button-margin" id="buttons">
 
-      <label for="cars">Choose an algorithm:</label>
+      <label for="speed">Speed:</label>
+      <select name="speed" id="speed" onchange="updateSpeed()">
+        <option value="slow">slow</option>
+        <option value="normal">normal</option>
+        <option value="fast">fast</option>
+      </select>
+
+      <label for="algorithm">Algorithm:</label>
       <select name="algorithms" id="algorithms" onchange="updateAlgorithm()">
         <option value="bubblesort">Bubble Sort</option>
+        <option value="mergesort">Merge Sort</option>
+        <option value="quicksort">Quick Sort</option>
         <option value="selectionsort">Selection Sort</option>
       </select>
 
+      <label for="inputsize">Input Size:</label>
+      <select name="inputsize" id="inputsize" onchange="updateInputSize()">
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="400">400</option>
+      </select>
+
       <button id="start" class="button-margin" type="button" onclick="startSorting()">Start</button>
-      <button id="pause" class="button-margin" type="button" onclick="pauseSorting()">Pause</button>
+      <!--<button id="pause" class="button-margin" type="button" onclick="pauseSorting()">Pause</button>-->
       <button id="reset" class="button-margin" type="button" onclick="resetData()">Reset</button>
     </div>
     <h3 id="description" class="text-center">Algorithm: Bubble Sort.  Time Complexity O(n^2). Space Complexity O(1)</h3>
