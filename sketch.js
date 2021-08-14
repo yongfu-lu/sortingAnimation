@@ -58,6 +58,9 @@ function startSorting() {
     else if (currentAlgorithm == "heapsort"){
       heapSort(values);
     }
+    else if (currentAlgorithm =="insertionsort"){
+      insertionSort(values,values.length);
+    }
   }
 }
 
@@ -99,18 +102,21 @@ function getDescription(algorithm) {
   var description;
   if (algorithm == "bubblesort") {
     description =
-      "Algorithm: Bubble Sort. Time Complexity O(n^2). Space Complexity O(1).";
+      "Algorithm: Bubble Sort. Time Complexity worst case O(n^2). Space Complexity O(1).";
   } else if (algorithm == "selectionsort") {
     description =
-      "Algorithm: Selection Sort. Time Complexity O(n^2). Space Complexity O(1).";
+      "Algorithm: Selection Sort. Time Complexity worst case O(n^2). Space Complexity O(1).";
   } else if (algorithm == "mergesort"){
-    description = "Algorithm: Merge Sort. Time Complexity O(nlogn). Space Complexity O(n)."
+    description = "Algorithm: Merge Sort. Time Complexity worst case O(nlogn). Space Complexity O(n)."
   }else if (algorithm =="heapsort"){
-    description = "Algorithm: Heap Sort. Time Complexity O(nlogn). Space Complexity O(1)."
+    description = "Algorithm: Heap Sort. Time Complexity worst casse O(nlogn). Space Complexity O(1)."
   } 
+  else if (algorithm == "insertionsort"){
+    description = "Algorithm: Insertion Sort. Time Complexity worst case O(n^2). Space Complexity O(1)."
+  }
   else {
     description =
-      "Algorithm: Quick Sort. Time Complexity O(nlogn). Space Complexity O(1).";
+      "Algorithm: Quick Sort. Time Complexity worst case O(nlogn). Space Complexity O(1).";
   }
 
   return description;

@@ -176,7 +176,7 @@ async function selectionSort(arr)
 }
 
 
-//head sort
+//heap sort
 async function heapSort( arr)
 	{
 		var n = arr.length;
@@ -230,4 +230,34 @@ async function heapSort( arr)
       }
 		}
 	}
+
+
+//insertion sort
+async function insertionSort(arr, n)
+{
+	let i, key, j;
+  if(isSorting){
+    for (i = 1; i < n; i++)
+    {
+      key = arr[i];
+      j = i - 1;
+      states[i] = 0;
+      if(isSorting){
+        while (j >= 0 && arr[j] > key)
+        {
+          
+          states[j] = 0;
+          await sleep(sleepTime);
+          arr[j + 1] = arr[j];
+          states[j] = -1;
+          j = j - 1;
+        }
+        await sleep(sleepTime);
+        arr[j + 1] = key;
+      }
+      states[i] = -1;
+    }
+  }
+}
+
 
