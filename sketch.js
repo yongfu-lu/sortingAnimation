@@ -7,7 +7,7 @@ var sleepTime = 80;
 var values = [];
 var states = [];
 
-var isSorting = false;
+var isSorting = true ;
 
 function setup() {
   var myCanvas = createCanvas(1000, 500);
@@ -43,6 +43,7 @@ function drawValue(values) {
 function startSorting() {
   if (!isSorting) {
     isSorting = true;
+
     if (currentAlgorithm == "bubblesort") {
       bubbleSort(values);
     } else if (currentAlgorithm == "quicksort") {
@@ -53,6 +54,9 @@ function startSorting() {
     }
     else if (currentAlgorithm == "selectionsort"){
       selectionSort(values);
+    }
+    else if (currentAlgorithm == "heapsort"){
+      heapSort(values);
     }
   }
 }
@@ -101,6 +105,8 @@ function getDescription(algorithm) {
       "Algorithm: Selection Sort. Time Complexity O(n^2). Space Complexity O(1).";
   } else if (algorithm == "mergesort"){
     description = "Algorithm: Merge Sort. Time Complexity O(nlogn). Space Complexity O(n)."
+  }else if (algorithm =="heapsort"){
+    description = "Algorithm: Heap Sort. Time Complexity O(nlogn). Space Complexity O(1)."
   } 
   else {
     description =

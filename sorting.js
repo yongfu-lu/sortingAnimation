@@ -152,7 +152,7 @@ async function mergeSort(arr,l, r){
 }
 
 
-// //selection sort
+ //selection sort
 async function selectionSort(arr)
 {
     var i, j, min_idx;
@@ -174,3 +174,60 @@ async function selectionSort(arr)
            await swap(arr,min_idx, i);
     }
 }
+
+
+//head sort
+async function heapSort( arr)
+	{
+		var n = arr.length;
+		for (var i = Math.floor(n / 2) - 1; i >= 0; i--)
+      if(isSorting){
+			  await heapify(arr, n, i);
+      }
+
+		for (var i = n - 1; i > 0; i--) {
+      if(isSorting){
+        states[0] = 0;
+        states[i] = 0;
+        await swap(arr,0,i);
+        states[0] = -1;
+        states[i] = -1;
+        await heapify(arr, i, 0);
+      }
+		}
+	}
+
+	async function heapify(arr, n, i)
+	{
+		var largest = i; // Initialize largest as root
+		var l = 2 * i + 1; // left = 2*i + 1
+		var r = 2 * i + 2; // right = 2*i + 2
+
+		if (l < n && arr[l] > arr[largest]){
+      states[largest] = 0;
+      states[l] = 0;
+      await sleep(sleepTime);
+      var temp = largest;
+			largest = l;
+      states[temp] = -1;
+      states[largest] = -1;
+      
+    }
+
+		if (r < n && arr[r] > arr[largest]){
+      states[largest] = 0;
+      states[r] = 0;
+      await sleep(sleepTime);
+      var temp = largest;
+			largest = r;
+      states[largest] = -1;
+      states[temp] = -1;
+    }
+		if (largest != i) {
+      if(isSorting){
+        await swap(arr, i, largest)
+        await heapify(arr, n, largest);
+      }
+		}
+	}
+
